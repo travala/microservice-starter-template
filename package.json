@@ -1,0 +1,27 @@
+{
+  "name": "microservice-starter-template",
+  "version": "1.0.0",
+  "description": "Starter Template to kickstart microservices for the TBB and Travala environments",
+  "main": "app.js",
+  "author": "Emanuele Tonello ",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "babel lib -d dist",
+    "dev": "nodemon --exec babel-node app.js",
+    "start": "nodemon --exec babel-node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fastify": "^3.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6"
+  }
+}
