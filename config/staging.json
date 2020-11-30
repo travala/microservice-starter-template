@@ -1,0 +1,13 @@
+{
+  "host": "https://staging.com",
+  "fqdn": "staging.com",
+  "scheme": "https",
+  "port": 80,
+  "dbConfig": {
+    "username": "",
+    "user": "",
+    "host": "",
+    "password": "",
+    "database": ""
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "host": "https://production.com",
+  "fqdn": "production.com",
+  "scheme": "https",
+  "port": 80,
+  "dbConfig": {
+    "username": "",
+    "user": "",
+    "host": "",
+    "password": "",
+    "database": ""
+  }
+}

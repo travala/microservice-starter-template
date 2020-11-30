@@ -1,0 +1,16 @@
+{
+  "host": "http://localhost",
+  "fqdn": "localhost",
+  "scheme": "http",
+  "port": 4444,
+  "saltRounds": 8,
+  "dbConfig": {
+    "port": 5432,
+    "dialect": "postgres",
+    "username": "",
+    "user": "",
+    "host": "",
+    "password": "",
+    "database": ""
+  }
+}
