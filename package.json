@@ -10,10 +10,32 @@
     "build": "babel lib -d dist",
     "dev": "nodemon --exec babel-node app.js",
     "start": "nodemon --exec babel-node dist/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test jest --forceExit --testTimeout=20000 --maxWorkers=4 --detectOpenHandles",
+    "test:ci": "NODE_ENV=test jest --forceExit --testTimeout=20000 --runInBand"
   },
   "dependencies": {
-    "fastify": "^3.8.0"
+    "@graphql-tools/schema": "^7.1.0",
+    "@graphql-tools/stitch": "^7.1.1",
+    "@sentry/node": "^5.27.6",
+    "@sentry/tracing": "^5.27.6",
+    "axios": "^0.21.0",
+    "config": "^3.3.3",
+    "fastify": "^3.8.0",
+    "fastify-auth": "^1.0.1",
+    "fastify-autoload": "^3.3.1",
+    "fastify-cors": "^5.0.0",
+    "fastify-gql": "^5.8.2",
+    "fastify-healthcheck": "^3.0.0",
+    "fastify-helmet": "^5.0.3",
+    "fastify-rate-limit": "^4.0.3",
+    "fastify-swagger": "^3.5.0",
+    "fastify-x-request-id": "^1.2.0",
+    "graphql-tag": "^2.11.0",
+    "joi": "^17.3.0",
+    "joi-to-json": "^1.2.0",
+    "tracer": "^1.1.4",
+    "winston": "^3.3.3",
+    "winston-logzio": "^5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
@@ -21,7 +43,11 @@
     "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "babel-jest": "^26.6.3",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.6.3",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
   }
 }
