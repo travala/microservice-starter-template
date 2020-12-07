@@ -1,10 +1,11 @@
 import config from 'config'
 import logger from '../logger'
 
-async function createUser({ body }, reply) {
+async function createUser(req, reply) {
   try {
+    logger.debug(req.body)
     // ... Create user
-    return {}
+    return req.body
   } catch (e) {
     logger.error(e.response ? e.response.data : e)
     return reply

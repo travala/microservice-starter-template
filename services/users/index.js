@@ -4,7 +4,7 @@ import Joi from 'joi'
 
 import usersController from '../../controllers/users'
 
-const BASE_PATH = 'credits'
+const BASE_PATH = 'users'
 
 export default async (fastify, opts) => {
   fastify.post(
@@ -13,7 +13,7 @@ export default async (fastify, opts) => {
       onRequest: fastify.basicAuth,
       schema: {
         tags: [BASE_PATH],
-        querystring: Joi.object().keys({
+        body: Joi.object().keys({
           name: Joi.string().required(),
           type: Joi.string().required().valid('a', 'b'),
           age: Joi.number().positive().required(),

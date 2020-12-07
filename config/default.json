@@ -12,5 +12,9 @@
     "host": "",
     "password": "",
     "database": ""
+  },
+  "auth": {
+    "api_key": "",
+    "api_secret": ""
   }
 }

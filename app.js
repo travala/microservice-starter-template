@@ -7,7 +7,7 @@ import path from 'path'
 import AutoLoad from 'fastify-autoload'
 import Sentry from '@sentry/node'
 import Tracing from '@sentry/tracing'
-import GQL from 'fastify-gql'
+import mercurius from 'mercurius'
 import * as fastifyHelmet from 'fastify-helmet'
 import * as fastifyRateLimit from 'fastify-rate-limit'
 import logger from './logger.js'
@@ -29,7 +29,7 @@ import * as fastifyRequestId from 'fastify-x-request-id'
 import * as fastifySwagger from 'fastify-swagger'
 
 fastify
-  .register(GQL, {
+  .register(mercurius, {
     schema: gqSchema,
     graphiql: 'playground',
     context: ({ headers }, reply) => {
