@@ -16,7 +16,7 @@ const swaggerConf = {
     host: `${config.fqdn}:${config.port}`,
     basePath: '/',
     schemes: [config.scheme],
-    tags: ['discounts', 'credits', 'coupons', 'partners'],
+    tags: ['users'],
     securityDefinitions: {
       basicAuth: {
         type: 'basic',
