@@ -91,7 +91,13 @@ if (isProd) {
 
   fastify.addHook('onError', (request, reply, error, done) => {
     // Only send Sentry errors when not in development
-    Sentry.captureException(error)
+    Sentry.withScope((scope) => {
+      scope.setUser({
+        ip_address: request.raw.ip,
+      })
+      scope.setTag('path', request.raw.url)
+      Sentry.captureException(error)
+    })
 
     done()
   })
@@ -114,11 +120,23 @@ if (isProd) {
   }
 })()
 
-process.on('SIGINT', async () => {
-  logger.log('stopping fastify server')
-  await fastify.close()
-  logger.log('fastify server stopped')
-  process.exit(0)
-})
+if (process) {
+  process.on('SIGINT', async () => {
+    logger.log('stopping fastify server')
+    await fastify.close()
+    logger.log('fastify server stopped')
+    process.exit(0)
+  })
+  process.once('SIGUSR2', async () => {
+    logger.log('stopping fastify server SIGUSR2')
+    await fastify.close()
+    process.exit(0)
+  })
+  process.once('SIGHUP', async () => {
+    logger.log('stopping fastify server SIGHUP')
+    await fastify.close()
+    process.exit(0)
+  })
+}
 
 export default fastify
