@@ -5,7 +5,7 @@ import LogzioWinstonTransport from 'winston-logzio'
 
 const debugLogger = console()
 
-const environment = process.env.NODE_ENV
+const environment = process.env.NODE_ENV || 'development'
 import path from 'path'
 const PROJECT_ROOT = path.join(__dirname, '..')
 

@@ -1,10 +1,11 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { stitchSchemas } from '@graphql-tools/stitch'
+import path from 'path'
+import fs from 'fs'
 import resolvers from './resolvers.js'
-import typeDefs from './typeDefs.js'
 
 const customSchema = makeExecutableSchema({
-  typeDefs,
+  typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf-8'),
   resolvers,
 })
 
