@@ -4,20 +4,21 @@ import config from 'config'
 
 const swaggerConf = {
   routePrefix: '/documentation',
-  swagger: {
-    consumes: ['application/json'],
-    produces: ['application/json'],
-    components: {},
+  openapi: {
     info: {
       description,
       version,
       title: 'Microservice',
     },
-    host: `${config.fqdn}:${config.port}`,
-    basePath: '/',
-    schemes: [config.scheme],
-    tags: ['users'],
-    securityDefinitions: {
+    servers: [
+      {
+        schemes: [config.scheme],
+        url: `${config.host}:${config.port}`,
+      },
+    ],
+    consumes: ['application/json'],
+    produces: ['application/json'],
+    security: {
       basicAuth: {
         type: 'basic',
       },
@@ -27,6 +28,7 @@ const swaggerConf = {
         name: 'x-api-key',
       },
     },
+    tags: ['users'],
   },
   transform: (schema) => {
     if (!schema) return null
