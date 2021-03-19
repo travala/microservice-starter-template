@@ -1,5 +1,5 @@
 import config from 'config'
-import { createLogger } from 'winston'
+import { createLogger, transports } from 'winston'
 import { console, colorConsole as colorLogger } from 'tracer'
 import LogzioWinstonTransport from 'winston-logzio'
 
@@ -66,7 +66,17 @@ if (environment === 'production') {
   logger = createLogger({
     level: 'debug',
     internalLogger: debugLogger,
-    transports: [logzioWinstonTransport],
+    transports: [
+      new transports.Console({
+        level: 'debug',
+        handleExceptions: true,
+        json: false,
+        colorize: false,
+        prettyPrint: true,
+      }),
+      logzioWinstonTransport,
+    ],
+    exceptionHandlers: [logzioWinstonTransport],
     exitOnError: false,
   })
 

@@ -14,7 +14,24 @@ import logger from './logger.js'
 
 import fastifyApp from 'fastify'
 const fastify = fastifyApp({
-  logger: !isProd ? logger.log : false,
+  logger: {
+    serializers: {
+      res(reply) {
+        return {
+          statusCode: reply.statusCode,
+        }
+      },
+      req(request) {
+        return {
+          method: request.method,
+          url: request.url,
+          path: request.path,
+          parameters: request.parameters,
+          headers: request.headers,
+        }
+      },
+    },
+  },
 })
 
 import gqSchema from './graphql/schema'
