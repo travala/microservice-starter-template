@@ -10,5 +10,6 @@
         "corejs": "3"
       }
     ]
-  ]
+  ],
+  "ignore": ["node_modules", "dist", "tests", ".git"]
 }

@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Starter Template to kickstart microservices for the TBB and Travala environments",
   "main": "app.js",
-  "author": "Emanuele Tonello ",
+  "author": "Emanuele Tonello",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "babel lib -d dist",
+    "build": "rm -rf dist/ && babel . -d dist --copy-files",
     "dev": "nodemon --exec babel-node app.js",
-    "start": "nodemon --exec babel-node dist/app.js",
+    "start": "node dist/app.js",
     "test": "NODE_ENV=test jest --forceExit --testTimeout=20000 --maxWorkers=4 --detectOpenHandles",
     "test:ci": "NODE_ENV=test jest --forceExit --testTimeout=20000 --runInBand"
   },
