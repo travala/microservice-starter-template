@@ -1,12 +1,9 @@
 {
   "restartable": "rs",
-  "ignore": [
-    ".git",
-    "tmp",
-    "node_modules/**/node_modules"
-  ],
+  "ignore": [".git", "tmp", "node_modules/**/node_modules"],
   "env": {
-    "NODE_ENV": "development"
+    "NODE_ENV": "development",
+    "NODE_CONFIG_DIR": "src/config"
   },
   "ext": "js json scss html"
 }

@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { authToken } from '../auth_helper.js'
 import nock from 'nock'
-import build from '../../app'
+import build from '../../src/app'
 
 nock('api_url').persist().get(`/credits`).reply(200, { available_credits: 0 })
 

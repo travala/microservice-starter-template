@@ -7,9 +7,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "rm -rf dist/ && babel . -d dist --copy-files",
-    "dev": "nodemon --exec babel-node app.js",
-    "start": "node dist/app.js",
+    "build": "rm -rf dist/ && babel src/ -d dist --copy-files",
+    "dev": "nodemon --exec babel-node src/app.js",
+    "start": "NODE_CONFIG_DIR=dist/config node dist/app.js",
     "test": "NODE_ENV=test jest --forceExit --testTimeout=20000 --maxWorkers=4 --detectOpenHandles",
     "test:ci": "NODE_ENV=test jest --forceExit --testTimeout=20000 --runInBand"
   },
