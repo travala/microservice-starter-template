@@ -1,4 +1,4 @@
-import { description, version } from '../package.json'
+import { description, version } from '../../package.json'
 import convert from 'joi-to-json'
 import config from 'config'
 

@@ -60,7 +60,7 @@ const logzioWinstonTransport = new LogzioWinstonTransport({
   level: 'debug',
   name: 'winston_logzio',
   type: 'backend',
-  token: config.logs_token,
+  token: config.logs_token || '',
   host: 'listener-au.logz.io',
   callback: catchError,
   compress: true,

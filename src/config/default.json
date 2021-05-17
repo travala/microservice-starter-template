@@ -4,6 +4,7 @@
   "scheme": "http",
   "port": 4444,
   "saltRounds": 8,
+  "logs_token": "abcde",
   "dbConfig": {
     "port": 5432,
     "dialect": "postgres",
