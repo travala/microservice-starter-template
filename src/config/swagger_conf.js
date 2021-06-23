@@ -18,14 +18,22 @@ const swaggerConf = {
     ],
     consumes: ['application/json'],
     produces: ['application/json'],
-    security: {
-      basicAuth: {
-        type: 'basic',
-      },
-      apiKey: {
-        type: 'apiKey',
-        in: 'header',
-        name: 'x-api-key',
+    components: {
+      securitySchemes: {
+        basicAuth: {
+          type: 'http',
+          scheme: 'basic',
+        },
+        bearer: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+        apiKey: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'x-api-key',
+        },
       },
     },
     tags: ['users'],
