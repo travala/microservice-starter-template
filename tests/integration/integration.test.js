@@ -8,11 +8,11 @@ nock('api_url').persist().get(`/credits`).reply(200, { available_credits: 0 })
 let userToken, app
 
 describe('tests', () => {
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     app = build()
     userToken = authToken()
 
-    return done()
+    return
   })
 
   afterAll(() => {
