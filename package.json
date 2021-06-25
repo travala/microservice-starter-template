@@ -40,6 +40,7 @@
     "winston-logzio": "^5.1.2"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
     "@babel/node": "^7.14.7",

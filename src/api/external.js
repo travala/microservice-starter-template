@@ -4,7 +4,7 @@ import logger from '../logger.js'
 
 const sendNotification = async (input) => {
   try {
-    let config = {
+    let options = {
       method: 'post',
       url: 'https://external-api',
       data: {
@@ -12,13 +12,13 @@ const sendNotification = async (input) => {
       },
     }
 
-    return (await axios(config)).data
+    return (await axios(options)).data
   } catch (error) {
     logger.error(error.response ? error.response.data : error)
     throw error
   }
 }
 
-module.exports = {
+export default {
   sendNotification,
 }
