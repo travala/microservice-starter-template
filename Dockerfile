@@ -5,7 +5,7 @@ WORKDIR /app
 FROM base AS builder
 
 COPY package.json yarn.lock .babelrc ./
-RUN yarn
+RUN yarn --production
 COPY . .
 RUN rm -rf .dist/
 RUN yarn babel ./src --out-dir ./dist --copy-files
@@ -20,5 +20,6 @@ COPY --from=builder /app/dist ./dist
 EXPOSE 9000
 
 ENV NODE_CONFIG_DIR dist/config
+ENV NODE_ENV production
 
-CMD ["node", "dist/app.js"]
+CMD ["node", "dist/app.js"] 
